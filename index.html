@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>GDAMICH — международная AI-компания</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(ellipse at 30% 40%, #0a0f2a, #03050b);
+            font-family: 'Segoe UI', 'Poppins', system-ui, sans-serif;
+            color: #eef4ff;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            width: 2px;
+            height: 2px;
+            opacity: 0;
+            animation: twinkle 3s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0; transform: scale(0.8);}
+            100% { opacity: 1; transform: scale(1.2);}
+        }
+
+        .shooting-star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.8);
+            opacity: 0;
+            top: 0;
+            left: 0;
+            transform: rotate(25deg);
+            animation: shoot 4s linear infinite;
+        }
+
+        @keyframes shoot {
+            0% { opacity: 0; transform: translateX(0) translateY(0) rotate(25deg);}
+            10% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; transform: translateX(-300px) translateY(300px) rotate(25deg);}
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .whale {
+            position: fixed;
+            bottom: 5%;
+            right: 3%;
+            width: 100px;
+            opacity: 0.5;
+            pointer-events: none;
+            z-index: 5;
+            animation: floatWhale 20s ease-in-out infinite;
+        }
+
+        @keyframes floatWhale {
+            0% { transform: translateY(0) rotate(0deg);}
+            50% { transform: translateY(-15px) rotate(2deg);}
+            100% { transform: translateY(0) rotate(0deg);}
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, #7CB9FF);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: 2px;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: #bdd4ff;
+            margin-top: 0.5rem;
+        }
+
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+
+        .card {
+            background: rgba(10, 20, 45, 0.55);
+            backdrop-filter: blur(10px);
+            border-radius: 2rem;
+            padding: 1.5rem;
+            width: 280px;
+            text-align: center;
+            border: 1px solid rgba(66, 153, 225, 0.3);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background: rgba(20, 35, 65, 0.7);
+        }
+
+        .card h3 {
+            font-size: 1.7rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #cbd5ff;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #2b6ef0;
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: #1a4fcf;
+            transform: scale(0.96);
+        }
+
+        .legend {
+            background: rgba(0, 0, 0, 0.35);
+            border-radius: 2rem;
+            padding: 1.8rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .legend-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .legend-item {
+            background: #0f1a2e;
+            padding: 0.5rem 1rem;
+            border-radius: 60px;
+            font-size: 0.9rem;
+            border: 1px solid #2c4875;
+        }
+
+        .legend-item strong {
+            color: #7CB9FF;
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            font-size: 0.75rem;
+            color: #6c86a3;
+            border-top: 1px solid rgba(100, 150, 200, 0.2);
+            margin-top: 2rem;
+        }
+
+        a {
+            color: #7CB9FF;
+            text-decoration: none;
+        }
+
+        @media (max-width: 700px) {
+            .logo { font-size: 2rem; }
+            .card { width: 100%; max-width: 320px; }
+        }
+    </style>
+</head>
+<body>
+<div class="stars" id="stars"></div>
+<svg class="whale" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M30 65 L10 75 L20 85 L45 80 L75 92 L110 95 L145 88 L170 78 L185 68 L190 58 L175 52 L155 55 L130 58 L110 60 L85 58 L60 55 L40 58 L30 65Z" fill="#3B82F6" opacity="0.7"/>
+    <circle cx="162" cy="64" r="4" fill="white"/>
+    <circle cx="163" cy="63" r="1.8" fill="#0A1128"/>
+    <path d="M50 78 L70 80 L90 81" stroke="#BFDBFE" stroke-width="2" fill="none"/>
+</svg>
+
+<div class="container">
+    <div class="header">
+        <div class="logo">GDAMICH</div>
+        <div class="tagline">гигантский DeepSeek AI — мировой IT-гигант, сильный и широкий</div>
+    </div>
+
+    <div class="projects">
+        <div class="card">
+            <h3>📱 Telegrall</h3>
+            <p>Быстрый, безопасный мессенджер. Работает на Supabase и DeepSeek.</p>
+            <a href="https://telegrall.github.io/Telegrall/" class="btn" target="_blank">Открыть →</a>
+        </div>
+        <div class="card">
+            <h3>✨ Wishes</h3>
+            <p>Исполнитель желаний с AI-модерацией. Загадай — и кит унесёт мечту в звёзды.</p>
+            <a href="https://telegrall.github.io/gelaniy/" class="btn" target="_blank">Загадать →</a>
+        </div>
+        <div class="card">
+            <h3>🌐 Ещё проект</h3>
+            <p>Скоро здесь появится новая идея. Следи за новостями.</p>
+            <button class="btn" style="background:#4b5c6b; cursor:default;">В разработке</button>
+        </div>
+    </div>
+
+    <div class="legend">
+        <h3>🐋 Легенда GDAMICH</h3>
+        <div class="legend-grid">
+            <div class="legend-item"><strong>G</strong> — Гигантский</div>
+            <div class="legend-item"><strong>D</strong> — DeepSeek</div>
+            <div class="legend-item"><strong>A</strong> — AI</div>
+            <div class="legend-item"><strong>M</strong> — Мировой</div>
+            <div class="legend-item"><strong>I</strong> — IT</div>
+            <div class="legend-item"><strong>C</strong> — Сильный</div>
+            <div class="legend-item"><strong>H</strong> — Широкий</div>
+        </div>
+        <p style="margin-top: 1rem;">Мы создаём открытые, безопасные и человечные технологии. <br> С помощью DeepSeek и нашего воображения.</p>
+    </div>
+
+    <div class="footer">
+        © 2026 GDAMICH. Все права защищены.<br>
+        Создано с помощью DeepSeek 🐋 | <a href="https://t.me/TelegrallTG" target="_blank">Telegram-канал</a>
+    </div>
+</div>
+
+<script>
+    const starsDiv = document.getElementById('stars');
+    for (let i = 0; i < 300; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        const size = Math.random() * 3 + 1;
+        star.style.width = size + 'px';
+        star.style.height = size + 'px';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.animationDelay = Math.random() * 5 + 's';
+        star.style.animationDuration = Math.random() * 2 + 1 + 's';
+        starsDiv.appendChild(star);
+    }
+    for (let s = 0; s < 20; s++) {
+        const shoot = document.createElement('div');
+        shoot.classList.add('shooting-star');
+        shoot.style.left = Math.random() * 80 + 10 + '%';
+        shoot.style.top = Math.random() * 40 + '%';
+        shoot.style.animationDelay = Math.random() * 10 + 's';
+        shoot.style.animationDuration = Math.random() * 3 + 2 + 's';
+        starsDiv.appendChild(shoot);
+    }
+</script>
+</body>
+</html>
