@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>GDAMICH — экосистема гигантской связи</title>
-    <!-- Иконка сайта (чтобы не было 404) -->
+    <title>GDAMICH — гигантская связь, которая доставит</title>
     <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/616/616567.png">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         * {
             margin: 0;
@@ -89,7 +87,7 @@
             margin-top: 0.5rem;
         }
         
-        .news-section, .services, .roadmap {
+        .services, .roadmap {
             background: rgba(10, 20, 45, 0.6);
             backdrop-filter: blur(12px);
             border-radius: 48px;
@@ -105,72 +103,6 @@
             -webkit-background-clip: text;
             color: transparent;
             margin-bottom: 1rem;
-        }
-        .news-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        .news-card {
-            background: rgba(0, 0, 0, 0.35);
-            border-radius: 28px;
-            padding: 1.2rem;
-            border-left: 3px solid #2b9aff;
-        }
-        .news-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #2b9aff;
-        }
-        .news-date {
-            font-size: 0.7rem;
-            color: #8e9eae;
-            margin: 0.3rem 0;
-        }
-        .admin-panel {
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 28px;
-            padding: 1.5rem;
-            margin-top: 1.5rem;
-            display: none;
-        }
-        .admin-panel.show {
-            display: block;
-        }
-        .admin-panel input, .admin-panel textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            background: #1f2c38;
-            border: 1px solid #2b3b4c;
-            border-radius: 16px;
-            color: white;
-        }
-        .admin-panel button {
-            background: #2b9aff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 40px;
-            color: white;
-            cursor: pointer;
-        }
-        .login-form {
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 28px;
-            padding: 1rem;
-            margin-top: 1rem;
-            text-align: center;
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .login-form input {
-            background: #1f2c38;
-            border: 1px solid #2b3b4c;
-            padding: 8px 16px;
-            border-radius: 40px;
-            color: white;
         }
         .projects {
             display: flex;
@@ -237,6 +169,20 @@
             font-size: 0.9rem;
             border: 1px solid #2c4875;
         }
+        .telegram-link {
+            background: #1f2c38;
+            border-radius: 40px;
+            padding: 12px 20px;
+            text-align: center;
+            margin: 2rem auto;
+            max-width: 300px;
+        }
+        .telegram-link a {
+            color: #2b9aff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
         .footer {
             text-align: center;
             padding: 2rem 0 1rem;
@@ -277,37 +223,15 @@
         <div class="tagline">Гигантская связь, которая доставит</div>
     </div>
 
-    <!-- НОВОСТИ -->
-    <div class="news-section">
-        <h2>📰 Последние новости</h2>
-        <div id="newsList" class="news-list">📡 Загрузка...</div>
-        
-        <div id="loginPanel" class="login-form">
-            <input type="password" id="adminPassword" placeholder="Пароль администратора">
-            <button id="loginBtn">Войти</button>
-            <span id="loginError" style="color:#ff6b6b;"></span>
-        </div>
-        
-        <div id="adminPanel" class="admin-panel">
-            <h3>✏️ Добавить новость</h3>
-            <input type="text" id="newsTitle" placeholder="Заголовок">
-            <textarea id="newsContent" rows="3" placeholder="Текст новости..."></textarea>
-            <button id="publishBtn">📢 Опубликовать</button>
-            <div id="publishStatus"></div>
-        </div>
-    </div>
-
-    <!-- СЕРВИСЫ -->
     <div class="services">
         <h2>📡 Наши сервисы</h2>
         <div class="projects">
-            <div class="card"><h3>💬 TeleGdam</h3><p>Мессенджер с AI-модерацией, звонками.</p><a href="https://telegrall.github.io/Telegrall" class="btn" target="_blank">Открыть →</a></div>
-            <div class="card"><h3>✨ Wishes</h3><p>Исполнитель желаний с AI.</p><a href="https://telegrall.github.io/gelaniy" class="btn" target="_blank">Загадать →</a></div>
-            <div class="card"><h3>📢 Доска объявлений</h3><p>Бесплатные объявления.</p><a href="https://telegrall.github.io/board" class="btn" target="_blank">Перейти →</a></div>
+            <div class="card"><h3>💬 TeleGdam</h3><p>Мессенджер с голосовыми звонками, уведомлениями, AI-модерацией.</p><a href="https://telegrall.github.io/Telegrall" class="btn" target="_blank">Открыть →</a></div>
+            <div class="card"><h3>✨ Wishes</h3><p>Исполнитель желаний. Анонимно, без регистрации.</p><a href="https://telegrall.github.io/gelaniy" class="btn" target="_blank">Загадать →</a></div>
+            <div class="card"><h3>📢 Доска объявлений</h3><p>Бесплатные объявления по всей России.</p><a href="https://telegrall.github.io/board" class="btn" target="_blank">Перейти →</a></div>
         </div>
     </div>
 
-    <!-- ПЛАНЫ -->
     <div class="roadmap">
         <h2>🚀 Что мы готовим</h2>
         <div class="features-grid">
@@ -317,7 +241,10 @@
         </div>
     </div>
 
-    <!-- ЛЕГЕНДА -->
+    <div class="telegram-link">
+        <a href="https://t.me/TelegrallTG" target="_blank">📢 Подписаться на новости в Telegram</a>
+    </div>
+
     <div class="legend">
         <h3>🐋 Легенда GDAMICH</h3>
         <div class="legend-grid">
@@ -332,19 +259,10 @@
         <p>Создаём открытые, безопасные технологии.<br>С помощью DeepSeek и нашего воображения.</p>
     </div>
 
-    <div class="footer">© 2025 GDAMICH. Создано с помощью DeepSeek 🐋 | <a href="https://t.me/TelegrallTG" target="_blank">Telegram-канал</a></div>
+    <div class="footer">© 2025 GDAMICH. Создано с помощью DeepSeek 🐋</div>
 </div>
 
 <script>
-    // ========== ОДНО ОБЪЯВЛЕНИЕ SUPABASE (БЕЗ ПОВТОРА) ==========
-    const supabaseClient = window.supabase.createClient(
-        "https://iiuahjmpszfcgtwapidt.supabase.co",
-        "sb_publishable_iFYpqkv4D0qEOj4Dn1X9Nw_OH9d5Bji"
-    );
-    
-    // ПАРОЛЬ (хеш SHA-256 от "gdamich2025")
-    const ADMIN_PASSWORD_HASH = "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92";
-    
     // ЗВЁЗДЫ
     const starsContainer = document.getElementById('starsContainer');
     for (let i = 0; i < 300; i++) {
@@ -370,56 +288,6 @@
     document.addEventListener('mousemove', (e) => { targetX = e.clientX; targetY = e.clientY; });
     document.addEventListener('touchmove', (e) => { const t = e.touches[0]; if (t) { targetX = t.clientX; targetY = t.clientY; } });
     updateWhale();
-    
-    // НОВОСТИ
-    async function loadNews() {
-        const { data } = await supabaseClient.from('news').select('*').eq('is_published', true).order('created_at', { ascending: false });
-        const container = document.getElementById('newsList');
-        if (!data || data.length === 0) { container.innerHTML = '<div>✨ Пока нет новостей. Загляните позже!</div>'; return; }
-        container.innerHTML = data.map(n => `
-            <div class="news-card">
-                <div class="news-title">${escapeHtml(n.title)}</div>
-                <div class="news-date">📅 ${new Date(n.created_at).toLocaleDateString('ru')}</div>
-                <div>${escapeHtml(n.content)}</div>
-            </div>
-        `).join('');
-    }
-    
-    async function publishNews() {
-        const title = document.getElementById('newsTitle').value.trim();
-        const content = document.getElementById('newsContent').value.trim();
-        if (!title || !content) { document.getElementById('publishStatus').innerHTML = '<span style="color:#ff6b6b;">Заполните все поля</span>'; return; }
-        const { error } = await supabaseClient.from('news').insert([{ title, content, is_published: true }]);
-        if (error) { document.getElementById('publishStatus').innerHTML = '<span style="color:#ff6b6b;">Ошибка: ' + error.message + '</span>'; }
-        else {
-            document.getElementById('publishStatus').innerHTML = '<span style="color:#4bcb6e;">✅ Новость опубликована!</span>';
-            document.getElementById('newsTitle').value = '';
-            document.getElementById('newsContent').value = '';
-            loadNews();
-            setTimeout(() => document.getElementById('publishStatus').innerHTML = '', 3000);
-        }
-    }
-    
-    async function checkPassword(pwd) {
-        const enc = new TextEncoder();
-        const hash = await crypto.subtle.digest('SHA-256', enc.encode(pwd));
-        const hashHex = Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
-        return hashHex === ADMIN_PASSWORD_HASH;
-    }
-    
-    function escapeHtml(str) { return str.replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m])); }
-    
-    document.getElementById('loginBtn').onclick = async () => {
-        const pwd = document.getElementById('adminPassword').value;
-        if (await checkPassword(pwd)) {
-            document.getElementById('loginPanel').style.display = 'none';
-            document.getElementById('adminPanel').classList.add('show');
-        } else {
-            document.getElementById('loginError').innerText = 'Неверный пароль';
-        }
-    };
-    document.getElementById('publishBtn').onclick = publishNews;
-    loadNews();
 </script>
 </body>
 </html>
