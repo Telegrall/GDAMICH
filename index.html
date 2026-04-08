@@ -14,7 +14,6 @@
         }
         body {
             background: radial-gradient(ellipse at 30% 40%, #0a0f2a, #03050b);
-            font-family: 'Segoe UI', 'Poppins', system-ui, sans-serif;
             color: #eef4ff;
             min-height: 100vh;
             overflow-x: hidden;
@@ -88,7 +87,7 @@
             margin-top: 0.5rem;
         }
         
-        .services, .roadmap {
+        .news-section, .services, .roadmap {
             background: rgba(10, 20, 45, 0.6);
             backdrop-filter: blur(12px);
             border-radius: 48px;
@@ -104,6 +103,72 @@
             -webkit-background-clip: text;
             color: transparent;
             margin-bottom: 1rem;
+        }
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .news-card {
+            background: rgba(0, 0, 0, 0.35);
+            border-radius: 28px;
+            padding: 1.2rem;
+            border-left: 3px solid #2b9aff;
+        }
+        .news-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2b9aff;
+        }
+        .news-date {
+            font-size: 0.7rem;
+            color: #8e9eae;
+            margin: 0.3rem 0;
+        }
+        .admin-panel {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 28px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            display: none;
+        }
+        .admin-panel.show {
+            display: block;
+        }
+        .admin-panel input, .admin-panel textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background: #1f2c38;
+            border: 1px solid #2b3b4c;
+            border-radius: 16px;
+            color: white;
+        }
+        .admin-panel button {
+            background: #2b9aff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 40px;
+            color: white;
+            cursor: pointer;
+        }
+        .login-form {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 28px;
+            padding: 1rem;
+            margin-top: 1rem;
+            text-align: center;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .login-form input {
+            background: #1f2c38;
+            border: 1px solid #2b3b4c;
+            padding: 8px 16px;
+            border-radius: 40px;
+            color: white;
         }
         .projects {
             display: flex;
@@ -127,12 +192,6 @@
         }
         .card h3 {
             font-size: 1.7rem;
-            margin-bottom: 0.5rem;
-        }
-        .card p {
-            font-size: 0.9rem;
-            color: #cbd5ff;
-            margin-bottom: 1rem;
         }
         .btn {
             display: inline-block;
@@ -141,8 +200,7 @@
             padding: 0.5rem 1.2rem;
             border-radius: 40px;
             text-decoration: none;
-            font-weight: 500;
-            transition: 0.2s;
+            margin-top: 0.5rem;
         }
         .features-grid {
             display: grid;
@@ -177,10 +235,6 @@
             font-size: 0.9rem;
             border: 1px solid #2c4875;
         }
-        .legend-item strong {
-            color: #7CB9FF;
-            font-size: 1.1rem;
-        }
         .footer {
             text-align: center;
             padding: 2rem 0 1rem;
@@ -188,10 +242,6 @@
             color: #6c86a3;
             border-top: 1px solid rgba(100, 150, 200, 0.2);
             margin-top: 2rem;
-        }
-        a {
-            color: #7CB9FF;
-            text-decoration: none;
         }
         @media (max-width: 700px) {
             .logo { font-size: 2rem; }
@@ -225,45 +275,47 @@
         <div class="tagline">Гигантская связь, которая доставит</div>
     </div>
 
+    <!-- НОВОСТИ -->
+    <div class="news-section">
+        <h2>📰 Последние новости</h2>
+        <div id="newsList" class="news-list">📡 Загрузка...</div>
+        
+        <div id="loginPanel" class="login-form">
+            <input type="password" id="adminPassword" placeholder="Пароль администратора">
+            <button id="loginBtn">Войти</button>
+            <span id="loginError" style="color:#ff6b6b;"></span>
+        </div>
+        
+        <div id="adminPanel" class="admin-panel">
+            <h3>✏️ Добавить новость</h3>
+            <input type="text" id="newsTitle" placeholder="Заголовок">
+            <textarea id="newsContent" rows="3" placeholder="Текст новости..."></textarea>
+            <button id="publishBtn">📢 Опубликовать</button>
+            <div id="publishStatus"></div>
+        </div>
+    </div>
+
+    <!-- СЕРВИСЫ -->
     <div class="services">
         <h2>📡 Наши сервисы</h2>
         <div class="projects">
-            <div class="card">
-                <h3>💬 TeleGdam</h3>
-                <p>Мессенджер с AI-модерацией, звонками и надёжной доставкой.</p>
-                <a href="https://telegrall.github.io/Telegrall" class="btn" target="_blank">Открыть →</a>
-            </div>
-            <div class="card">
-                <h3>✨ Wishes</h3>
-                <p>Исполнитель желаний с AI-модерацией. Загадай — и кит унесёт мечту в звёзды.</p>
-                <a href="https://telegrall.github.io/gelaniy" class="btn" target="_blank">Загадать →</a>
-            </div>
-            <div class="card">
-                <h3>📢 Доска объявлений</h3>
-                <p>Бесплатные объявления по всей России.</p>
-                <a href="https://telegrall.github.io/board" class="btn" target="_blank">Перейти →</a>
-            </div>
+            <div class="card"><h3>💬 TeleGdam</h3><p>Мессенджер с AI-модерацией, звонками.</p><a href="https://telegrall.github.io/Telegrall" class="btn" target="_blank">Открыть →</a></div>
+            <div class="card"><h3>✨ Wishes</h3><p>Исполнитель желаний с AI.</p><a href="https://telegrall.github.io/gelaniy" class="btn" target="_blank">Загадать →</a></div>
+            <div class="card"><h3>📢 Доска объявлений</h3><p>Бесплатные объявления.</p><a href="https://telegrall.github.io/board" class="btn" target="_blank">Перейти →</a></div>
         </div>
     </div>
 
+    <!-- ПЛАНЫ -->
     <div class="roadmap">
         <h2>🚀 Что мы готовим</h2>
         <div class="features-grid">
-            <div class="feature-card">
-                <h3>🎥 Видеозвонки</h3>
-                <p>Скоро в TeleGdam появятся видеозвонки с высоким качеством.</p>
-            </div>
-            <div class="feature-card">
-                <h3>🔔 Умные уведомления</h3>
-                <p>Мгновенные оповещения о новых сообщениях.</p>
-            </div>
-            <div class="feature-card">
-                <h3>🎨 Кастомизация</h3>
-                <p>Темы, стикерпаки, обои — сделай интерфейс своим.</p>
-            </div>
+            <div class="feature-card"><h3>🎥 Видеозвонки</h3><p>Скоро в TeleGdam.</p></div>
+            <div class="feature-card"><h3>🔔 Умные уведомления</h3><p>Мгновенные оповещения.</p></div>
+            <div class="feature-card"><h3>🎨 Кастомизация</h3><p>Темы, стикеры, обои.</p></div>
         </div>
     </div>
 
+    <!-- ЛЕГЕНДА -->
     <div class="legend">
         <h3>🐋 Легенда GDAMICH</h3>
         <div class="legend-grid">
@@ -275,57 +327,97 @@
             <div class="legend-item"><strong>C</strong> — Сильный</div>
             <div class="legend-item"><strong>H</strong> — Широкий</div>
         </div>
-        <p style="margin-top: 1rem;">Мы создаём открытые, безопасные и человечные технологии.<br>С помощью DeepSeek и нашего воображения.</p>
+        <p>Создаём открытые, безопасные технологии.<br>С помощью DeepSeek и нашего воображения.</p>
     </div>
 
-    <div class="footer">
-        © 2025 GDAMICH. Все права защищены.<br>
-        Создано с помощью DeepSeek 🐋 | <a href="https://t.me/TelegrallTG" target="_blank">Telegram-канал</a>
-    </div>
+    <div class="footer">© 2025 GDAMICH. Создано с помощью DeepSeek 🐋 | <a href="https://t.me/TelegrallTG" target="_blank">Telegram-канал</a></div>
 </div>
 
 <script>
-    (function() {
-        // ========== ЗВЁЗДЫ ==========
-        const starsContainer = document.getElementById('starsContainer');
-        for (let i = 0; i < 300; i++) {
-            const star = document.createElement('div');
-            star.classList.add('star');
-            star.style.left = Math.random() * 100 + '%';
-            star.style.top = Math.random() * 100 + '%';
-            star.style.animationDelay = Math.random() * 5 + 's';
-            star.style.animationDuration = Math.random() * 2 + 1 + 's';
-            starsContainer.appendChild(star);
+    // SUPABASE (один раз)
+    const supabase = window.supabase.createClient(
+        "https://iiuahjmpszfcgtwapidt.supabase.co",
+        "sb_publishable_iFYpqkv4D0qEOj4Dn1X9Nw_OH9d5Bji"
+    );
+    
+    // ПАРОЛЬ (хеш SHA-256 от "gdamich2025")
+    const ADMIN_PASSWORD_HASH = "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92";
+    
+    // ЗВЁЗДЫ
+    const starsContainer = document.getElementById('starsContainer');
+    for (let i = 0; i < 300; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.animationDelay = Math.random() * 5 + 's';
+        star.style.animationDuration = Math.random() * 2 + 1 + 's';
+        starsContainer.appendChild(star);
+    }
+    
+    // КИТ
+    const whale = document.getElementById('whaleCursor');
+    let targetX = 0, targetY = 0, currentX = 0, currentY = 0;
+    function updateWhale() {
+        currentX += (targetX - currentX) * 0.2;
+        currentY += (targetY - currentY) * 0.2;
+        whale.style.left = currentX + 'px';
+        whale.style.top = currentY + 'px';
+        requestAnimationFrame(updateWhale);
+    }
+    document.addEventListener('mousemove', (e) => { targetX = e.clientX; targetY = e.clientY; });
+    document.addEventListener('touchmove', (e) => { const t = e.touches[0]; if (t) { targetX = t.clientX; targetY = t.clientY; } });
+    updateWhale();
+    
+    // НОВОСТИ
+    async function loadNews() {
+        const { data } = await supabase.from('news').select('*').eq('is_published', true).order('created_at', { ascending: false });
+        const container = document.getElementById('newsList');
+        if (!data || data.length === 0) { container.innerHTML = '<div>✨ Пока нет новостей. Загляните позже!</div>'; return; }
+        container.innerHTML = data.map(n => `
+            <div class="news-card">
+                <div class="news-title">${escapeHtml(n.title)}</div>
+                <div class="news-date">📅 ${new Date(n.created_at).toLocaleDateString('ru')}</div>
+                <div>${escapeHtml(n.content)}</div>
+            </div>
+        `).join('');
+    }
+    
+    async function publishNews() {
+        const title = document.getElementById('newsTitle').value.trim();
+        const content = document.getElementById('newsContent').value.trim();
+        if (!title || !content) { document.getElementById('publishStatus').innerHTML = '<span style="color:#ff6b6b;">Заполните все поля</span>'; return; }
+        const { error } = await supabase.from('news').insert([{ title, content, is_published: true }]);
+        if (error) { document.getElementById('publishStatus').innerHTML = '<span style="color:#ff6b6b;">Ошибка: ' + error.message + '</span>'; }
+        else {
+            document.getElementById('publishStatus').innerHTML = '<span style="color:#4bcb6e;">✅ Новость опубликована!</span>';
+            document.getElementById('newsTitle').value = '';
+            document.getElementById('newsContent').value = '';
+            loadNews();
+            setTimeout(() => document.getElementById('publishStatus').innerHTML = '', 3000);
         }
-        
-        // ========== КИТ ЗА КУРСОРОМ ==========
-        const whale = document.getElementById('whaleCursor');
-        let targetX = 0, targetY = 0;
-        let currentX = 0, currentY = 0;
-        
-        function updateWhale() {
-            currentX += (targetX - currentX) * 0.2;
-            currentY += (targetY - currentY) * 0.2;
-            whale.style.left = currentX + 'px';
-            whale.style.top = currentY + 'px';
-            requestAnimationFrame(updateWhale);
+    }
+    
+    async function checkPassword(pwd) {
+        const enc = new TextEncoder();
+        const hash = await crypto.subtle.digest('SHA-256', enc.encode(pwd));
+        const hashHex = Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+        return hashHex === ADMIN_PASSWORD_HASH;
+    }
+    
+    function escapeHtml(str) { return str.replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m])); }
+    
+    document.getElementById('loginBtn').onclick = async () => {
+        const pwd = document.getElementById('adminPassword').value;
+        if (await checkPassword(pwd)) {
+            document.getElementById('loginPanel').style.display = 'none';
+            document.getElementById('adminPanel').classList.add('show');
+        } else {
+            document.getElementById('loginError').innerText = 'Неверный пароль';
         }
-        
-        document.addEventListener('mousemove', (e) => {
-            targetX = e.clientX;
-            targetY = e.clientY;
-        });
-        
-        document.addEventListener('touchmove', (e) => {
-            const touch = e.touches[0];
-            if (touch) {
-                targetX = touch.clientX;
-                targetY = touch.clientY;
-            }
-        });
-        
-        updateWhale();
-    })();
+    };
+    document.getElementById('publishBtn').onclick = publishNews;
+    loadNews();
 </script>
 </body>
 </html>
