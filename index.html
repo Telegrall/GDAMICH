@@ -23,6 +23,7 @@
             body { cursor: auto; }
         }
         
+        /* Звёздное небо */
         .stars {
             position: fixed;
             top: 0;
@@ -46,6 +47,7 @@
             100% { opacity: 1; transform: scale(1.2);}
         }
         
+        /* Кит за курсором */
         .whale-cursor {
             position: fixed;
             width: 70px;
@@ -334,7 +336,7 @@
 </div>
 
 <script>
-    // SUPABASE (один раз)
+    // ========== ОДНО ОБЪЯВЛЕНИЕ SUPABASE ==========
     const supabase = window.supabase.createClient(
         "https://iiuahjmpszfcgtwapidt.supabase.co",
         "sb_publishable_iFYpqkv4D0qEOj4Dn1X9Nw_OH9d5Bji"
@@ -343,7 +345,7 @@
     // ПАРОЛЬ (хеш SHA-256 от "gdamich2025")
     const ADMIN_PASSWORD_HASH = "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92";
     
-    // ЗВЁЗДЫ
+    // ========== ЗВЁЗДЫ ==========
     const starsContainer = document.getElementById('starsContainer');
     for (let i = 0; i < 300; i++) {
         const star = document.createElement('div');
@@ -355,7 +357,7 @@
         starsContainer.appendChild(star);
     }
     
-    // КИТ
+    // ========== КИТ ЗА КУРСОРОМ ==========
     const whale = document.getElementById('whaleCursor');
     let targetX = 0, targetY = 0, currentX = 0, currentY = 0;
     function updateWhale() {
@@ -369,7 +371,7 @@
     document.addEventListener('touchmove', (e) => { const t = e.touches[0]; if (t) { targetX = t.clientX; targetY = t.clientY; } });
     updateWhale();
     
-    // НОВОСТИ
+    // ========== НОВОСТИ ==========
     async function loadNews() {
         const { data } = await supabase.from('news').select('*').eq('is_published', true).order('created_at', { ascending: false });
         const container = document.getElementById('newsList');
