@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            user-select: none;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
         body {
             background: radial-gradient(ellipse at 30% 40%, #0a0f2a, #03050b);
@@ -20,9 +20,7 @@
             cursor: none;
         }
         @media (max-width: 768px) {
-            body {
-                cursor: auto;
-            }
+            body { cursor: auto; }
         }
         .whale-cursor {
             position: fixed;
@@ -38,7 +36,6 @@
             width: 100%;
             height: 100%;
         }
-        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -64,24 +61,22 @@
             color: #bdd4ff;
             margin-top: 0.5rem;
         }
-        
-        /* Наши сервисы (уже работают) */
-        .services {
+        .services, .roadmap {
+            background: rgba(10, 20, 45, 0.6);
+            backdrop-filter: blur(12px);
+            border-radius: 48px;
+            padding: 2rem;
             margin: 3rem 0;
+            border: 1px solid rgba(66, 153, 225, 0.3);
         }
-        .services h2 {
+        h2 {
             font-size: 1.8rem;
             text-align: center;
             background: linear-gradient(135deg, #C0E0FF, #7CB9FF);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-            margin-bottom: 0.5rem;
-        }
-        .services-sub {
-            text-align: center;
-            color: #8e9eae;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
         .projects {
             display: flex;
@@ -122,66 +117,18 @@
             font-weight: 500;
             transition: 0.2s;
         }
-        .btn-outline {
-            background: transparent;
-            border: 1px solid #2b9aff;
-            color: #2b9aff;
-        }
-        .btn-outline:hover {
-            background: #2b9aff;
-            color: white;
-        }
-        
-        /* Что будет скоро (дорожная карта) */
-        .roadmap {
-            background: rgba(10, 20, 45, 0.6);
-            backdrop-filter: blur(12px);
-            border-radius: 48px;
-            padding: 2rem;
-            margin: 3rem 0;
-            border: 1px solid rgba(66, 153, 225, 0.3);
-        }
-        .roadmap h2 {
-            font-size: 2rem;
-            text-align: center;
-            background: linear-gradient(135deg, #C0E0FF, #7CB9FF);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            margin-bottom: 1rem;
-        }
-        .roadmap-sub {
-            text-align: center;
-            color: #8e9eae;
-            margin-bottom: 2rem;
-        }
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 1.5rem;
+            margin-top: 1rem;
         }
         .feature-card {
             background: rgba(0, 0, 0, 0.35);
             border-radius: 28px;
             padding: 1.5rem;
             border-left: 3px solid #2b9aff;
-            transition: transform 0.2s;
         }
-        .feature-card:hover {
-            transform: translateY(-5px);
-            background: rgba(20, 40, 70, 0.7);
-        }
-        .feature-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: #2b9aff;
-        }
-        .feature-card p {
-            color: #cbd5ff;
-            font-size: 0.9rem;
-        }
-        
-        /* Легенда */
         .legend {
             background: rgba(0, 0, 0, 0.35);
             border-radius: 2rem;
@@ -207,7 +154,6 @@
             color: #7CB9FF;
             font-size: 1.1rem;
         }
-        
         .footer {
             text-align: center;
             padding: 2rem 0 1rem;
@@ -220,7 +166,6 @@
             color: #7CB9FF;
             text-decoration: none;
         }
-        
         @media (max-width: 700px) {
             .logo { font-size: 2rem; }
             .card { width: 100%; max-width: 320px; }
@@ -229,8 +174,6 @@
     </style>
 </head>
 <body>
-
-<!-- Кит за курсором / пальцем -->
 <div class="whale-cursor" id="whaleCursor">
     <svg viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M30 65 L10 75 L20 85 L45 80 L75 92 L110 95 L145 88 L170 78 L185 68 L190 58 L175 52 L155 55 L130 58 L110 60 L85 58 L60 55 L40 58 L30 65Z" fill="#3B82F6" stroke="#BFDBFE" stroke-width="1.5"/>
@@ -252,14 +195,12 @@
         <div class="tagline">Гигантская связь, которая доставит</div>
     </div>
 
-    <!-- НАШИ СЕРВИСЫ (уже работают) -->
     <div class="services">
         <h2>📡 Наши сервисы</h2>
-        <div class="services-sub">Уже можно пользоваться</div>
         <div class="projects">
             <div class="card">
                 <h3>💬 TeleGdam</h3>
-                <p>Мессенджер с AI-модерацией, звонками и надёжной доставкой.</p>
+                <p>Мессенджер с AI-модерацией, звонками и надёжной доставкой. Уже работает.</p>
                 <a href="https://telegrall.github.io/Telegrall" class="btn" target="_blank">Открыть →</a>
             </div>
             <div class="card">
@@ -267,37 +208,20 @@
                 <p>Исполнитель желаний с AI-модерацией. Загадай — и кит унесёт мечту в звёзды.</p>
                 <a href="https://telegrall.github.io/gelaniy" class="btn" target="_blank">Загадать →</a>
             </div>
+            <div class="card">
+                <h3>📢 Доска объявлений</h3>
+                <p>Бесплатные объявления по всей России. Уже работает.</p>
+                <a href="https://telegrall.github.io/board" class="btn" target="_blank">Перейти →</a>
+            </div>
         </div>
     </div>
 
-    <!-- ЧТО БУДЕТ СКОРО (разработка) -->
     <div class="roadmap">
-        <h2>🚀 Что будет скоро</h2>
-        <div class="roadmap-sub">Эти сервисы мы активно разрабатываем</div>
+        <h2>🚀 Что мы готовим</h2>
         <div class="features-grid">
             <div class="feature-card">
-                <h3>📢 Доска объявлений</h3>
-                <p>Бесплатные объявления по всей России. Уже в разработке.</p>
-            </div>
-            <div class="feature-card">
-                <h3>📖 Словарь русского языка</h3>
-                <p>150 000 слов, определения, части речи. Для учёбы и работы.</p>
-            </div>
-            <div class="feature-card">
-                <h3>🌍 Переводчик</h3>
-                <p>Русский ↔ Английский, безлимитный, бесплатный.</p>
-            </div>
-            <div class="feature-card">
-                <h3>🧩 Помощник для игры в слова</h3>
-                <p>Решает головоломки за 6 попыток. Подбирает слово по буквам.</p>
-            </div>
-            <div class="feature-card">
-                <h3>🎨 Магазин кастомизации</h3>
-                <p>Обои, рингтоны, иконки, темы для устройств.</p>
-            </div>
-            <div class="feature-card">
-                <h3>📚 Генератор контрольных для учителей</h3>
-                <p>Экономит часы подготовки. Генерирует варианты по любой теме.</p>
+                <h3>🎥 Видеозвонки</h3>
+                <p>Скоро в TeleGdam появятся видеозвонки с высоким качеством и минимальной задержкой.</p>
             </div>
             <div class="feature-card">
                 <h3>🔔 Умные уведомления</h3>
@@ -307,15 +231,13 @@
                 <h3>📱 Адаптивный дизайн</h3>
                 <p>Идеальная работа на телефонах, планшетах и компьютерах.</p>
             </div>
-        </div>
-        <div style="text-align: center; margin-top: 2rem;">
-            <span style="background: #1f2c38; padding: 0.5rem 1.5rem; border-radius: 60px; font-size: 0.8rem;">
-                🐋 Мы не сидим на месте. Скоро всё это заработает!
-            </span>
+            <div class="feature-card">
+                <h3>🎨 Кастомизация</h3>
+                <p>Темы, стикерпаки, обои — сделай интерфейс своим.</p>
+            </div>
         </div>
     </div>
 
-    <!-- Легенда GDAMICH -->
     <div class="legend">
         <h3>🐋 Легенда GDAMICH</h3>
         <div class="legend-grid">
@@ -327,17 +249,16 @@
             <div class="legend-item"><strong>C</strong> — Сильный</div>
             <div class="legend-item"><strong>H</strong> — Широкий</div>
         </div>
-        <p style="margin-top: 1rem;">Мы создаём открытые, безопасные и человечные технологии. <br> С помощью DeepSeek и нашего воображения.</p>
+        <p style="margin-top: 1rem;">Мы создаём открытые, безопасные и человечные технологии.<br>С помощью DeepSeek и нашего воображения.</p>
     </div>
 
     <div class="footer">
-        © 2026 GDAMICH. Все права защищены.<br>
+        © 2025 GDAMICH. Все права защищены.<br>
         Создано с помощью DeepSeek 🐋 | <a href="https://t.me/TelegrallTG" target="_blank">Telegram-канал</a>
     </div>
 </div>
 
 <script>
-    // Кит за курсором / пальцем
     const whale = document.getElementById('whaleCursor');
     let targetX = 0, targetY = 0;
     let currentX = 0, currentY = 0;
